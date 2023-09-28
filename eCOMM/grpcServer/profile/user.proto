@@ -1,0 +1,27 @@
+syntax  ="proto3"; 
+option go_package="github.com/ArchiMrin/gRPC_Server/profile"; //optional name given to package
+
+
+package profile;
+// as many message possible can be given
+message Profile {
+
+    string Id = 1;
+    string FirstName =2;
+    string LastName =3;
+    string Age = 4;
+    string Email =5;
+    string Password=6;
+    string ConfirmPassword=7;
+    string Role=8;
+}
+
+message ProfileResponse {
+    string Id=1;
+    string Success =2;
+    string ErrorMessage=3;
+}
+
+service ProfileService{
+    rpc CreateProfile(Profile) returns(ProfileResponse);
+}
